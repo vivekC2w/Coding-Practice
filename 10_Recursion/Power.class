@@ -1,0 +1,25 @@
+
+/*
+ * Question: power(5^2 = 25)
+ * Input: 5 2
+ * Output: 25
+ * 
+ */
+
+public class Power{
+    public static void main(String[] args) {
+        int pow = power(5, 2);
+        System.out.println(pow);
+    }
+
+    public static int power(int n, int p){
+        if(p==0)
+            return 1;
+
+        int faithAns = power(n, p-1);
+        int finalAns = n * faithAns;
+
+        return finalAns;
+
+    }
+}

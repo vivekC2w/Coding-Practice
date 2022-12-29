@@ -26,3 +26,5 @@ public class MaxWealth {
         return maxSum;
     }
 }
+
+// 6

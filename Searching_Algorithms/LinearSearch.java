@@ -1,9 +1,12 @@
 package Searching_Algorithms;
 
 public class LinearSearch {
+
+    // Time Complexity => O(N)
+    // Space Complexity => O(1)
     public static void main(String[] args) {
-        int[] nums = { 23, 45, 1, 2, 3, 4, 5, 58, 36, 46 };
-        int target = 4;
+        int[] nums = { 1, 2, 8, 16, 25, 8, 9 };
+        int target = 25;
         int index = linearSearch(nums, target);
         System.out.println(index);
     }
@@ -14,13 +17,11 @@ public class LinearSearch {
         if (arr.length == 0) {
             return -1;
         }
-
         // run a for loop
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == target)
                 return i;
         }
-
         return -1;
     }
 }
