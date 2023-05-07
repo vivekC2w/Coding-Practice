@@ -40,6 +40,9 @@ public class PrimeNum {
      * Input: 10
      * Output: 2, 3, 5, 7, 11, 13, 15, 17
      */
+
+    // TC => O(nlog(log(n)))
+    // SC => O(n)
     public static ArrayList<Integer> sieveOferatosthenes(int n) {
         ArrayList<Integer> primeNosAns = new ArrayList<>();
         boolean[] arr = new boolean[n];

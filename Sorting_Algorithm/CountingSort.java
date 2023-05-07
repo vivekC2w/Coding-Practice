@@ -1,5 +1,7 @@
 package Sorting_Algorithm;
 
+import java.io.*;
+
 public class CountingSort {
     // TC => O(n)
     // SC=> O(n)
@@ -9,7 +11,7 @@ public class CountingSort {
         countingSortAnotherMethod(arrCountingSort);
     }
 
-    public static void printArray(int[] arr, String str) {
+    public static <String> void printArray(int[] arr, String str) {
 
         System.out.print(str);
 

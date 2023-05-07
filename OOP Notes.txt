@@ -1,0 +1,218 @@
+Object Oriented Programming 
+1.	OOP approach is a programming methodology to design computer programs using classes and objects.
+
+In OOP program is divided into small parts called Objects.
+
+OOP follows bottom-up approach.
+
+a. Classes - class is a blueprint of objects & does not exits physically.
+b. Objects - The entire OOP methodology is derived from a single root concept that is object.
+	An Object is an instance of a class & anything that really exists in the world.
+	E.g. Raju is an object of class "Person"
+	
+	Properties like name, age, gender, represented by variables in program. While actions like walking, talking & eating represnted by methods in program.
+	
+1. Instance Variables - Non static variables, gets memory on heap inside object. They are instantiated by constructor.
+
+2. Instance Methods: Non static method, If we want to call instance method then we have to create object of its class & on that obj we can call
+instance method.
+
+3. Static variables - A static variable is a variable that belongs to the class, and not to any instance of the class. It is declared using the 
+static keyword and initialized only once, at the time of class loading. All instances of the class share the same static variable, 
+and changes made to the variable will be visible to all instances of the class.
+
+4. Static method - A static method, similarly, is a method that belongs to the class, and not to any instance of the class. It is declared using 
+the static keyword and can be invoked using the class name, without creating an instance of the class. A static method can access only static 
+variables and other static methods of the class.
+
+Static variables and methods in Java are associated with their corresponding class rather than with individual objects. As a result, the memory 
+for static variables and methods is allocated in a special area of the Java Virtual Machine (JVM) called the "method area" (also known as 
+"permanent generation" prior to Java 8).
+
+
+/----------------------------------Encapsulation-----------------------------------------------/
+Encapsulation is one of the fundamental concepts in object-oriented programming (OOP) that refers to the process of hiding the internal details 
+of an object and exposing only the necessary information through its public interface. This helps to prevent unwanted access and modification 
+to the internal state of an object
+
+ **some real-time examples of encapsulation**
+
+Bank Account: A bank account is a perfect example of encapsulation in action. The account holder can deposit or withdraw money through the bank's 
+interface, but the internal workings of the account, such as the account number, balance, and transaction history, are hidden from the user. 
+This ensures that only authorized personnel can access the sensitive information, thus maintaining the security and privacy of the account holder.
+
+Car Engine: The engine of a car is an excellent example of encapsulation. The driver can control the speed and direction of the car through the 
+steering wheel and pedals, but the internal workings of the engine, such as the fuel injection system, ignition system, and exhaust system, 
+are hidden from the driver. This ensures that the driver cannot accidentally or intentionally modify the engine, which could cause damage to the car.
+
+
+Constructor -> 
+1. Constructor is used to initalize instance variable.
+2. Weather we define or not coonstructor is there in class by default.
+3. Constructor name & class name is same.
+4. Memory will be allocated on heap inside object of class.
+5. It gets Implicitly called after object creation.
+6. First Line in constructor is super()
+	super() call to parent class constructor.
+7. In java there is only parameterized constructor. Beacause bydefault (this) is there as a parameter.
+
+
+/-----------------------------------Inheritance---------------------------------------------------/
+
+Inheritance = Deriving new classes from existing classes such that new class acquire all the features of existing classes & also add its own features
+
+Inhertiance proves that super() really calls the constructor of parent class.
+
+e.g. Parent- Child is a best example of Inheritance.
+
+class BCCI {
+	
+	int x = 10;
+	
+	BCCI() {	System.out.println("Inside -Parent- constructor"); 	};
+	
+	void rulesBCCI() {
+		System.out.println("Rules by BCCI");
+	}
+	
+}
+
+class IPL extends BCCI {
+	
+	int y = 20;
+	
+	void rulesIPL() {
+		System.out.println("Rules By IPL");
+	}
+	
+	IPL() { System.out.println("Inside IPL -Child- Constructor"); }
+	
+}
+
+class Match {
+
+	public static void main(String[] args) {
+	
+		BCCI obj = new BCCI();
+		obj.rulesBCCI();				
+		obj.rulesIPL(); 		//ERROR can not find symbol
+		
+		IPL iplObj = new IPL();
+		iplObj.rulesIPL();
+		//we can call parent method using childs obj but we can't access child method using parent's object
+		iplObj.rulesBCCI();
+		
+	}
+	
+}
+
+
+/------------------------------------ POLYMORPHISM ---------------------------------------------/
+
+Ability of message to be displayed in more than one form.
+Poly means many and morphus means forms.
+
+In (POP languages)like C function names must be different though their params are different
+e.g. void fun(int x) {	printf("");	}
+	 void float(float f) {	printf("); }
+	 
+	//Same function name not allowed in POP 
+
+	In Java => abs(int) , abs(flaot), abs(long) works
+
+1. Overloading :
+		Writing two or methods in same class in a way that each method has same name but different method signatures is called overloading.
+		
+2. Overriding:
+		Writing two or more methods in super and sub classes such that methods have same signature is called overloading.
+
+
+/-------------------------------------- INTERFACE ----------------------------------------------------/
+
+Interface is a specification of method prototype. 
+All methods of interface are public and abstract bydefault.
+Concrete methods are not allowed in interface.		
+	concrete method is a method that has an implementation or a body. This means that the method provides a specific functionality 
+	and can be called to perform a certain task.
+100% abstraction.
+There is no constructor in interface.
+Interface can extends another interface. But interface can not extends another class.
+
+Real Time exapmple of Interface:
+
+interface YeoleChaha {
+
+	public abstract void meakingTea();
+	
+}
+
+class PimpriChinchwad implemets Yeole {
+
+	public void makingTea() {
+		System.out.println("Starts at 5 AM");
+		System.out.println("Best Taste");
+	}
+	
+}
+
+class HinjewadiBranch implemets Yeole {
+
+	public void makingTea() {
+		System.out.println("Starts at 7 AM");
+		System.out.println("Best Taste");
+	}
+	
+}
+
+class Tea {
+	public static void main(String[] args) {
+		YeoleChaha y = new PimpriChinchwad();
+		y.makingTea();
+		YeoleChaha x = new HinjewadiBranch();
+		x.makingTea();
+	}
+}
+
+/-----------------------------------------------Abstraction -------------------------------------------------/
+There may be a lot of data, a class contains & the user don't need entire data. The user requires only some part of available data. In this case 
+that data that is of interest to the user. This is called abstraction. e.g. ATM machine, Fan -> Button of fan hidding internal flow of circuits
+
+Abstract class ia a class that contains method zero or more abstract methods. 
+Abstarct method is a method without body. An abstract method is written when the same method has to perform different task sepending on object calling on it.
+
+Two types of methods in Abstract class -
+1. concrete method => static and non static method
+2. abstract method
+
+Abstract class -> Incomplete Code (No body)
+-Keyword 'abstract'
+-0 to 100% (some concrete & some abstract methods)
+- we can not create reference for abstract class
+
+abstarct class Parent {
+
+	void getProperty() {
+		System,out,println("Bunglow + Car");
+	}
+	abstarct void marry();
+	
+}
+
+class Child extends Parent {
+	void marry() { System.out.println("Kriti Sanon");
+}
+
+class Demo {
+
+	public static void main(String[] args) {
+		Child c = new Child();
+		c.getProperty();
+		c.marry();
+		
+		Parent p = new Child();
+		p.getProperty();
+		p.marry();
+		
+	}
+	
+}
