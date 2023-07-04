@@ -1,0 +1,41 @@
+
+
+The Intuition is to use backtracking approach to explore all possible combinations of 
+taking or not taking transfer requests. It maintains a count of transfer requests and 
+checks if the requests are balanced for each building. The maximum count of transfer 
+requests that satisfies the balanced request condition is returned as the result.
+
+Explanation:
+The maximumRequests function takes an integer n representing the number of buildings and a
+ 2D vector requests containing the transfer requests.
+The function initializes a vector indegree of size n to keep track of the difference 
+between incoming and outgoing requests for each building. Initially, all values are set 
+to 0.
+The function then calls the helper function with the starting index as 0, the requests 
+vector, the indegree vector, n, and a count variable set to 0.
+The helper function is the main backtracking function. It takes the current start index, 
+the requests vector, the indegree vector, n, and the current count of transfer requests.
+If the start index is equal to the size of the requests vector, it means we have processed 
+all transfer requests. In this case, the function checks if all buildings have balanced 
+requests (i.e., indegree values are all 0). If so, it updates the ans variable with the 
+maximum count of transfer requests.
+If the start index is not equal to the size of the requests vector, the function has two 
+choices: take or not take the current transfer request.
+If we take the current transfer request, we reduce the indegree value of the source building
+ (requests[start][0]) by 1 and increase the indegree value of the destination building 
+ (requests[start][1]) by 1. Then, we recursively call the helper function with the updated
+  start index, requests, indegree, n, and the incremented count by 1.
+After the recursive call, we revert the changes made in step 7 by increasing the indegree 
+value of the source building and decreasing the indegree value of the destination building. 
+This step represents the "not-take" choice. We then recursively call the helper function 
+with the updated start index, requests, indegree, n, and the same count value.
+The helper function explores all possible combinations of taking or not taking transfer 
+requests, tracking the maximum count of transfer requests (ans) that satisfies the balanced 
+request condition.
+Finally, the maximumRequests function returns the maximum count of transfer requests stored 
+in the ans variable.
+
+Complexity:
+Time complexity: O(2^M * N)
+Space complexity: O(N+M)
+N is the number of buildings, and M is the number of requests.
