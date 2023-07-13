@@ -1,0 +1,34 @@
+The function DFS performs a depth-first search starting from a node s in the graph.
+
+The visited vector keeps track of nodes that have been visited during the DFS traversal.
+
+The dfsVisited vector keeps track of nodes that are visited in the current DFS path.
+
+The checkCycle vector is used to mark nodes that are part of a cycle.
+
+Initially, all nodes are marked as not visited (visited and dfsVisited vectors are false).
+
+For each node in the graph, if it has not been visited, the DFS function is called.
+
+During the DFS traversal, if an adjacent node is not visited, the DFS function is recursively
+ called for that node.
+
+If the recursive call returns true, it means that a cycle is detected, and the current node
+ s is marked as part of a cycle in the checkCycle vector.
+
+If an adjacent node is already visited and also part of the current DFS path (dfsVisited is
+ true), it indicates a cycle, and the current node s is marked as part of a cycle in the 
+ checkCycle vector.
+
+After exploring all adjacent nodes, the current node s is marked as not visited in the 
+current DFS path (dfsVisited[s] = false).
+
+Finally, the eventualSafeNodes function iterates over all nodes and adds the nodes that 
+are not part of any cycle (marked as false in the checkCycle vector) to the ans vector.
+
+The ans vector is returned as the eventual safe nodes in the graph.
+
+The main idea is to perform a DFS traversal and detect cycles in the graph. Nodes that are 
+not part of any cycle are considered eventual safe nodes. The dfsVisited vector is used to 
+keep track of the current path and detect cycles. The checkCycle vector is used to mark 
+nodes that are part of a cycle.
